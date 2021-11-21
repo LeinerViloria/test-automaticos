@@ -23,8 +23,6 @@ public class controladorCatalogo {
 					ruta.getIdentificacion_destino() +"','"+
 					ruta.getFormaRuta() + "'," +
 					ruta.getPrecio()+"/";
-		
-		System.out.println(cadenaruta);
 
 
 		String sql = "Call gestionarCatalogos(?)";
