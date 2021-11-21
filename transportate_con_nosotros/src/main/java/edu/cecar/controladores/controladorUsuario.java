@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import edu.cecar.componentes.ConectarMySQL;
-import edu.cecar.modelos.empleado;
 import edu.cecar.modelos.tipo_empleado;
 import edu.cecar.modelos.usuario;
 
@@ -17,10 +16,9 @@ public class controladorUsuario {
 		boolean flag=false;
 		
 		usuario usuarioBD = getUsuario(usuario.getCedula_funcionario());		
-		
-		if(usuarioBD==null) {
-			tipo_empleado tipo_empleado = getTipoEmpleado(usuario.getCedula_funcionario());
-				if(tipo_empleado.getNombre().equals("Funcionario")) {
+		tipo_empleado tipo_empleado = getTipoEmpleado(usuario.getCedula_funcionario());
+		if(usuarioBD==null&&tipo_empleado!=null) {			
+			if(tipo_empleado.getNombre().equals("Funcionario")) {
 				String sql = "Call gestionarinserciondinamica(?,?)";
 		
 				PreparedStatement ejecutarProcedimiento = ConectarMySQL.getConexion().

@@ -5,6 +5,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 import org.junit.Test;
 
 import edu.cecar.componentes.ConectarMySQL;
@@ -40,6 +42,7 @@ public class TestTipoEmpleado {
 				assertTrue(tipo_empleado.getCodigo().equals(tipo_empleadoBD.getCodigo())&&tipo_empleado.getNombre().equals(tipo_empleadoBD.getNombre()));
 				
 			}else {
+				JOptionPane.showMessageDialog(null, "No se guardó porque ya existe el tipo de empleado "+tipo_empleado.getCodigo());
 				assertFalse(guardar);
 			}
 

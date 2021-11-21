@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import edu.cecar.componentes.ConectarMySQL;
-import edu.cecar.modelos.destino;
 import edu.cecar.modelos.tipo_empleado;
 
 public class controladorTipoEmpleado {
@@ -26,8 +25,6 @@ public class controladorTipoEmpleado {
 			ejecutarProcedimiento.setString(1, "tipos_empleados");
 			ejecutarProcedimiento.setString(2, "'"+tipo_empleado.getCodigo()+"', "+"'"+tipo_empleado.getNombre()+"'/");
 			ejecutarProcedimiento.execute();
-			
-		}else {
 			flag=true;
 		}
 		

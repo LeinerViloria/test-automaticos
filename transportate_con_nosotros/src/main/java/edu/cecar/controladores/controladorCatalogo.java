@@ -6,8 +6,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JOptionPane;
-
 import edu.cecar.componentes.ConectarMySQL;
 import edu.cecar.modelos.catalogo_viaje;
 import edu.cecar.modelos.ruta;

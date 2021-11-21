@@ -33,7 +33,7 @@ public class TestUsuario {
 	public void testGestionarUsuario() {
 		try {			
 
-			usuario usuario = new usuario("1090", "andres@gmail.com", "123");		
+			usuario usuario = new usuario("109", "otro@gmail.com", "123");		
 
 			controladorUsuario controladorUsuario = new controladorUsuario();
 			boolean guardar = controladorUsuario.guardarUsuario(usuario);
@@ -44,7 +44,7 @@ public class TestUsuario {
 				assertTrue(usuario.getCedula_funcionario().equals(usuarioBD.getCedula_funcionario())&&usuario.getEmail().equals(usuarioBD.getEmail())&&usuario.getContrasena().equals(usuarioBD.getContrasena()));
 				
 			}else {
-				JOptionPane.showMessageDialog(null, "No se pudo guardar porque ya existe");
+				JOptionPane.showMessageDialog(null, "No se pudo guardar porque ya está registrado o porque el empleado no es funcionario o no existe");
 				assertFalse(guardar);
 			}
 
