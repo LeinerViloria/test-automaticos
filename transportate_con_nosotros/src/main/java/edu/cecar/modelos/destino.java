@@ -3,6 +3,10 @@ package edu.cecar.modelos;
 public class destino {
 	private String id;
 	private String nombre;
+	
+	public destino() {
+		// TODO Auto-generated constructor stub
+	}
 	public destino(String id, String nombre) {
 		super();
 		this.id = id;

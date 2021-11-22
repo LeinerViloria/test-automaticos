@@ -31,12 +31,12 @@ public class TestDestino {
 	public void testGestionarDestino() {		
 		try {			
 
-			destino destino = new destino("MON", "Monteria");		
+			destino destino = new destino("BOG", "Bogota");		
 
 			controladorDestino ControladorDestino = new controladorDestino();
 			ControladorDestino.guardarDestino(destino);
 			
-			destino destinoBD = ControladorDestino.getUltimoDestino();
+			destino destinoBD = ControladorDestino.getDestino(destino.getId());
 			
 			//assertEquals("El dato a insertar no coincide con el insertado",destino,destinoBD);
 			assertEquals(destino.getId(), destinoBD.getId());

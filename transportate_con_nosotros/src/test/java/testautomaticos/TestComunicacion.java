@@ -14,7 +14,6 @@ import org.junit.Test;
 import edu.cecar.componentes.ConectarMySQL;
 import edu.cecar.controladores.controladorComunicacion;
 import edu.cecar.modelos.comunicacion;
-import edu.cecar.modelos.ruta;
 
 public class TestComunicacion {
 	public TestComunicacion() {

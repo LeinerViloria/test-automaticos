@@ -46,18 +46,4 @@ public class controladorDestino {
 
 	}
 
-	
-	public destino getUltimoDestino() throws SQLException {
-		String sql = "select identificacion from destinos limit 1";
-
-		PreparedStatement ejecutarProcedimiento = ConectarMySQL.getConexion().
-				prepareStatement(sql);
-
-
-		ResultSet resultado = ejecutarProcedimiento.executeQuery();
-		resultado.next();			
-		
-		return getDestino(resultado.getString(1));
-	}
-
 }

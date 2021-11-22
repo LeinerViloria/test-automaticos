@@ -7,10 +7,7 @@ import java.util.List;
 
 import edu.cecar.componentes.ConectarMySQL;
 import edu.cecar.modelos.comunicacion;
-import edu.cecar.modelos.empleado;
-import edu.cecar.modelos.ruta;
 import edu.cecar.modelos.tipo_comunicacion;
-import edu.cecar.modelos.tipo_empleado;
 
 public class controladorComunicacion {
 	
