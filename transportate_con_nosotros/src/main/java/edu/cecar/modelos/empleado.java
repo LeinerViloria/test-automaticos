@@ -6,6 +6,10 @@ public class empleado {
 	private String nombres;
 	private String apellidos;
 	
+	public empleado() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public empleado(String cedula, String codigo_tipo_empleado, String nombres, String apellidos) {
 		super();
 		this.cedula = cedula;

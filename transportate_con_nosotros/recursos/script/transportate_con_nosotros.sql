@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-11-2021 a las 00:15:56
+-- Tiempo de generación: 23-11-2021 a las 15:28:43
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.12
 
@@ -114,7 +114,8 @@ DELIMITER ;
 --
 -- Estructura de tabla para la tabla `asignaciones`
 --
--- Creación: 18-11-2021 a las 19:36:28
+-- Creación: 23-11-2021 a las 13:44:12
+-- Última actualización: 23-11-2021 a las 13:42:31
 --
 
 DROP TABLE IF EXISTS `asignaciones`;
@@ -125,13 +126,19 @@ CREATE TABLE `asignaciones` (
   `placa_transporte` varchar(8) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `asignaciones`
+--
+
+INSERT INTO `asignaciones` (`identificacion`, `cedula_empleado`, `fecha`, `placa_transporte`) VALUES
+('1', '1009', '2021-11-23', 'KOK-090');
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `catalogos_viajes`
 --
 -- Creación: 18-11-2021 a las 19:36:28
--- Última actualización: 20-11-2021 a las 19:43:34
 --
 
 DROP TABLE IF EXISTS `catalogos_viajes`;
@@ -165,6 +172,16 @@ CREATE TABLE `comunicaciones` (
   `numero` varchar(14) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `comunicaciones`
+--
+
+INSERT INTO `comunicaciones` (`cedula_empleado`, `id_tipo`, `numero`) VALUES
+('1009', '1', '2344'),
+('1009', '1', '4565'),
+('1009', '1', '7632'),
+('1009', '2', '5655');
+
 -- --------------------------------------------------------
 
 --
@@ -184,6 +201,8 @@ CREATE TABLE `destinos` (
 --
 
 INSERT INTO `destinos` (`identificacion`, `nombre`) VALUES
+('BARR', 'Barranquilla'),
+('BOG', 'Bogota'),
 ('MON', 'Monteria'),
 ('SIN', 'Sincelejo');
 
@@ -201,13 +220,22 @@ CREATE TABLE `detalles_ruta` (
   `codigo_destino` varchar(20) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `detalles_ruta`
+--
+
+INSERT INTO `detalles_ruta` (`identificacion_ruta`, `codigo_destino`) VALUES
+('RU1', 'BARR'),
+('RU1', 'BOG'),
+('RU1', 'MON'),
+('RU1', 'SIN');
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `empleados`
 --
 -- Creación: 18-11-2021 a las 19:36:28
--- Última actualización: 20-11-2021 a las 22:19:18
 --
 
 DROP TABLE IF EXISTS `empleados`;
@@ -240,6 +268,13 @@ CREATE TABLE `medios_transportes` (
   `nombre` varchar(40) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `medios_transportes`
+--
+
+INSERT INTO `medios_transportes` (`codigo`, `nombre`) VALUES
+('1', 'Van');
+
 -- --------------------------------------------------------
 
 --
@@ -262,7 +297,6 @@ CREATE TABLE `pasajes` (
 -- Estructura de tabla para la tabla `rutas`
 --
 -- Creación: 19-11-2021 a las 17:39:15
--- Última actualización: 20-11-2021 a las 19:43:34
 --
 
 DROP TABLE IF EXISTS `rutas`;
@@ -295,7 +329,6 @@ INSERT INTO `rutas` (`codigo`, `identificacion_catalogos`, `identificacion_orige
 -- Estructura de tabla para la tabla `secuencia_catalogo`
 --
 -- Creación: 19-11-2021 a las 17:34:51
--- Última actualización: 20-11-2021 a las 19:43:34
 --
 
 DROP TABLE IF EXISTS `secuencia_catalogo`;
@@ -324,13 +357,21 @@ CREATE TABLE `tipos_comunicacion` (
   `nombre` varchar(30) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `tipos_comunicacion`
+--
+
+INSERT INTO `tipos_comunicacion` (`identificacion`, `nombre`) VALUES
+('1', 'Personal'),
+('2', 'Familiar'),
+('3', 'Fijo');
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `tipos_empleados`
 --
 -- Creación: 18-11-2021 a las 19:36:28
--- Última actualización: 20-11-2021 a las 21:01:10
 --
 
 DROP TABLE IF EXISTS `tipos_empleados`;
@@ -361,13 +402,19 @@ CREATE TABLE `transportes` (
   `codigo_medios_transporte` varchar(30) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `transportes`
+--
+
+INSERT INTO `transportes` (`placa`, `codigo_medios_transporte`) VALUES
+('KOK-090', '1');
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `usuarios`
 --
 -- Creación: 18-11-2021 a las 19:36:28
--- Última actualización: 20-11-2021 a las 23:12:01
 --
 
 DROP TABLE IF EXISTS `usuarios`;
@@ -409,6 +456,7 @@ CREATE TABLE `viajes` (
 --
 ALTER TABLE `asignaciones`
   ADD PRIMARY KEY (`identificacion`),
+  ADD UNIQUE KEY `cedula_empleado_fecha_unique` (`cedula_empleado`,`fecha`) USING BTREE,
   ADD KEY `asignaciones_empleado_fk` (`cedula_empleado`),
   ADD KEY `asignaciones_transportes_fk` (`placa_transporte`);
 

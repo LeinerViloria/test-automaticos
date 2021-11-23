@@ -4,6 +4,10 @@ public class transporte {
 	private String placa;
 	private String codigo_transporte;
 	
+	public transporte() {
+		
+	}
+	
 	public transporte(String placa, String codigo_transporte) {
 		super();
 		this.placa = placa;
