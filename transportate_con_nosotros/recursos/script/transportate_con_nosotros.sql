@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-11-2021 a las 15:28:43
+-- Tiempo de generación: 23-11-2021 a las 19:04:05
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.12
 
@@ -280,7 +280,8 @@ INSERT INTO `medios_transportes` (`codigo`, `nombre`) VALUES
 --
 -- Estructura de tabla para la tabla `pasajes`
 --
--- Creación: 18-11-2021 a las 19:36:28
+-- Creación: 23-11-2021 a las 16:53:17
+-- Última actualización: 23-11-2021 a las 18:03:01
 --
 
 DROP TABLE IF EXISTS `pasajes`;
@@ -288,8 +289,16 @@ CREATE TABLE `pasajes` (
   `tiquete` varchar(20) COLLATE latin1_spanish_ci NOT NULL,
   `identificacion_viaje` varchar(25) COLLATE latin1_spanish_ci NOT NULL,
   `cedula_funcionario` varchar(15) COLLATE latin1_spanish_ci NOT NULL,
-  `fecha_venta` date NOT NULL
+  `fecha_venta` date NOT NULL,
+  `precio` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `pasajes`
+--
+
+INSERT INTO `pasajes` (`tiquete`, `identificacion_viaje`, `cedula_funcionario`, `fecha_venta`, `precio`) VALUES
+('AAA', 'ANN-1', '1090', '2021-11-23', 2000);
 
 -- --------------------------------------------------------
 
@@ -437,6 +446,7 @@ INSERT INTO `usuarios` (`cedula_funcionario`, `email`, `contrasena`) VALUES
 -- Estructura de tabla para la tabla `viajes`
 --
 -- Creación: 18-11-2021 a las 19:36:28
+-- Última actualización: 23-11-2021 a las 16:44:30
 --
 
 DROP TABLE IF EXISTS `viajes`;
@@ -446,6 +456,13 @@ CREATE TABLE `viajes` (
   `codigo_ruta` varchar(35) COLLATE latin1_spanish_ci NOT NULL,
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `viajes`
+--
+
+INSERT INTO `viajes` (`identificacion`, `identificacion_asignaciones`, `codigo_ruta`, `fecha`) VALUES
+('ANN-1', '1', 'RU1', '2021-11-23');
 
 --
 -- Índices para tablas volcadas

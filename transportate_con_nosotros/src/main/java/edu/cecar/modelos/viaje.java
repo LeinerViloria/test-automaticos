@@ -8,6 +8,9 @@ public class viaje {
 	private String codigo_ruta;
 	private Date fecha;
 	
+	public viaje() {
+	}
+	
 	public viaje(String identificacion, String identificacion_asignacion, String codigo_ruta, Date fecha) {
 		super();
 		this.identificacion = identificacion;
