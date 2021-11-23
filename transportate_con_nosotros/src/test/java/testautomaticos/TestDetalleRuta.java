@@ -19,7 +19,6 @@ import edu.cecar.modelos.detalle_ruta;
 
 public class TestDetalleRuta {
 	public TestDetalleRuta() {
-		
 		try {
 
 			ConectarMySQL conectarMySQL = 
